@@ -1,4 +1,4 @@
-packages:
+## Packages
 'react-beautiful-dnd': Used for drag and drop functionality to change the order in which the layers are painted.
 'turf': Turf is an open source JavaScript library that allows you to do spatial operations in the browser. Turf helps you analyze, aggregate, and transform data.
 
