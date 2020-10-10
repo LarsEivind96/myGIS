@@ -1,0 +1,25 @@
+.mainContainer {
+  max-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.sideBarContainer {
+  display: flex;
+  flex-direction: column;
+  width: 21vw;
+  min-width: 200px;
+  background-color: white;
+  height: 100vh;
+  overflow: scroll;
+  border-right: 0px solid #c5c0c0;
+}
+
+.mapContainer {
+  position: fixed;
+  width: 80vw;
+  height: 100vh;
+  position: relative;
+}
