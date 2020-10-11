@@ -9,6 +9,7 @@ mapboxgl.accessToken =
 const Map = (props) => {
   const mapContainer = useRef(null);
   let [map, setMap] = useState(null);
+  let { allLayers, deletedLayerId, setDeletedLayerId } = props;
 
   useEffect(() => {
     const attachMap = (setMap, mapContainer) => {
@@ -17,7 +18,7 @@ const Map = (props) => {
       }
       const map = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/mapbox/streets-v11",
+        style: "mapbox://styles/mapbox/dark-v10",
         center: [10.406, 63.418],
         zoom: 14,
         attributionControl: false,
@@ -25,7 +26,7 @@ const Map = (props) => {
 
       map.on("load", () => {
         // Add layers to map after map has loaded
-        props.allLayers.forEach((layer) => {
+        allLayers.forEach((layer) => {
           map.addLayer(layer);
         });
         setMap(map);
@@ -37,13 +38,19 @@ const Map = (props) => {
       map.addControl(nav, "bottom-right");
     };
     !map && attachMap(setMap, mapContainer);
-  }, [map, props.allLayers]);
+  }, [map, allLayers]);
 
   useEffect(() => {
     if (map) {
       let lastLayer;
       let index = 0;
-      props.allLayers.forEach((layer) => {
+      // Removes the chosen layer
+      if (deletedLayerId !== "") {
+        map.removeLayer(deletedLayerId);
+        setDeletedLayerId("");
+        return;
+      }
+      allLayers.forEach((layer) => {
         // Adds layer to the map if not already included
         if (map.getLayer(layer.id) === undefined) {
           map.addLayer(layer);
@@ -61,7 +68,7 @@ const Map = (props) => {
         index++;
       });
     }
-  }, [map, props.allLayers]);
+  }, [map, allLayers, deletedLayerId, setDeletedLayerId]);
 
   return <div className="map" ref={mapContainer} />;
 };

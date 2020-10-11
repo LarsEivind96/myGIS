@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SideBar.css";
 import styled from "styled-components";
 import { Droppable, Draggable } from "react-beautiful-dnd";
+import Colors from "../../constants/Colors";
 
 const LayerList = (props) => {
   const { totalLayerSet, setTotalLayerSet } = props;
@@ -29,12 +30,19 @@ const LayerList = (props) => {
             className="Layer"
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
+            draggingOver={snapshot.draggingOver === "delete"}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
             <div style={{ width: "65%", wordWrap: "break-word" }}>{layer.id}</div>
             <button
-              style={{ width: "50px" }}
+              className="LayerButton"
+              style={{
+                width: "50px",
+                borderRadius: "5px",
+                backgroundColor: Colors.button,
+                color: Colors.text,
+              }}
               onClick={() => {
                 setVisibility(visibility === "visible" ? "none" : "visible");
                 toggleVisibility(layer);
@@ -50,7 +58,7 @@ const LayerList = (props) => {
 
   return (
     <div className="LayerContainer">
-      <p>Layers</p>
+      <h3>Layers</h3>
       <Droppable droppableId={"0"}>
         {(provided) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
@@ -61,24 +69,36 @@ const LayerList = (props) => {
           </div>
         )}
       </Droppable>
+      <Droppable droppableId={"delete"}>
+        {(provided) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            style={{ color: Colors.delete, borderColor: Colors.delete }}
+            className="DeleteLayer"
+          >
+            D E L E T E{provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     </div>
   );
 };
 
 const StyledContainer = styled.div`
   font-size: 14px;
-  margin-top: 3px;
-  opacity: ${(props) => (props.isDragging ? 0.5 : 1)};
-  background-color: ${(props) => (props.isDragging ? "#ADD8E6" : "white")};
-  cursor: ${(props) => (props.isDragging ? "grab;" : "pointer;")}
+  margin-top: 4px;
+  opacity: ${(props) => (props.isDragging ? 0.6 : 1)};
+  background-color: ${(props) => (props.draggingOver ? Colors.delete : Colors.secondary)};
   border: ${(props) =>
     props.isDragging ? "1px solid rgba(0, 0, 0, 0.6);" : "1px solid rgba(0, 0, 0, 0.3);"};
   box-shadow: ${(props) =>
-    props.isDragging ? "0px 10px 20px rgba(0, 0, 0, 0.19);" : "0px 2px 3px rgba(0, 0, 0, 0.13);"};
-  border-radius: 1px;
+    props.isDragging ? "0px 10px 20px rgba(0, 0, 0, 0.49);" : "-2px 3px 3px rgba(0, 0, 0, 0.43);"};
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  `;
+  color: ${Colors.text};
+`;
 
 export default LayerList;
