@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/myGIS/static/css/main.12a3e046.chunk.css",
-    "main.js": "/myGIS/static/js/main.8cea4497.chunk.js",
-    "main.js.map": "/myGIS/static/js/main.8cea4497.chunk.js.map",
+    "main.css": "/myGIS/static/css/main.ece74043.chunk.css",
+    "main.js": "/myGIS/static/js/main.d7caabd7.chunk.js",
+    "main.js.map": "/myGIS/static/js/main.d7caabd7.chunk.js.map",
     "runtime-main.js": "/myGIS/static/js/runtime-main.af9a353b.js",
     "runtime-main.js.map": "/myGIS/static/js/runtime-main.af9a353b.js.map",
     "static/js/2.5de448b1.chunk.js": "/myGIS/static/js/2.5de448b1.chunk.js",
     "static/js/2.5de448b1.chunk.js.map": "/myGIS/static/js/2.5de448b1.chunk.js.map",
     "index.html": "/myGIS/index.html",
-    "precache-manifest.83189dbda4bedf87c0b9fbcbbb83e87f.js": "/myGIS/precache-manifest.83189dbda4bedf87c0b9fbcbbb83e87f.js",
+    "precache-manifest.2c3da3f5432e6ff36e1cc82179c5d770.js": "/myGIS/precache-manifest.2c3da3f5432e6ff36e1cc82179c5d770.js",
     "service-worker.js": "/myGIS/service-worker.js",
-    "static/css/main.12a3e046.chunk.css.map": "/myGIS/static/css/main.12a3e046.chunk.css.map",
+    "static/css/main.ece74043.chunk.css.map": "/myGIS/static/css/main.ece74043.chunk.css.map",
     "static/js/2.5de448b1.chunk.js.LICENSE.txt": "/myGIS/static/js/2.5de448b1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.af9a353b.js",
     "static/js/2.5de448b1.chunk.js",
-    "static/css/main.12a3e046.chunk.css",
-    "static/js/main.8cea4497.chunk.js"
+    "static/css/main.ece74043.chunk.css",
+    "static/js/main.d7caabd7.chunk.js"
   ]
 }
