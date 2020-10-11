@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/myGIS/static/css/main.e27b3591.chunk.css",
+    "main.css": "/myGIS/static/css/main.91d5a461.chunk.css",
     "main.js": "/myGIS/static/js/main.8cea4497.chunk.js",
     "main.js.map": "/myGIS/static/js/main.8cea4497.chunk.js.map",
     "runtime-main.js": "/myGIS/static/js/runtime-main.af9a353b.js",
@@ -8,15 +8,15 @@
     "static/js/2.5de448b1.chunk.js": "/myGIS/static/js/2.5de448b1.chunk.js",
     "static/js/2.5de448b1.chunk.js.map": "/myGIS/static/js/2.5de448b1.chunk.js.map",
     "index.html": "/myGIS/index.html",
-    "precache-manifest.b583bc6815764a83f07cd9e6e535f369.js": "/myGIS/precache-manifest.b583bc6815764a83f07cd9e6e535f369.js",
+    "precache-manifest.849ab8c76daf4f17dc9cdf127529e4f2.js": "/myGIS/precache-manifest.849ab8c76daf4f17dc9cdf127529e4f2.js",
     "service-worker.js": "/myGIS/service-worker.js",
-    "static/css/main.e27b3591.chunk.css.map": "/myGIS/static/css/main.e27b3591.chunk.css.map",
+    "static/css/main.91d5a461.chunk.css.map": "/myGIS/static/css/main.91d5a461.chunk.css.map",
     "static/js/2.5de448b1.chunk.js.LICENSE.txt": "/myGIS/static/js/2.5de448b1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.af9a353b.js",
     "static/js/2.5de448b1.chunk.js",
-    "static/css/main.e27b3591.chunk.css",
+    "static/css/main.91d5a461.chunk.css",
     "static/js/main.8cea4497.chunk.js"
   ]
 }

@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c4aeafefc3c303e62930c88032e07eba",
+    "revision": "888df98ec8a88ac192ec5ff44e1a163c",
     "url": "/myGIS/index.html"
   },
   {
-    "revision": "8f95cda75eecea3279c9",
-    "url": "/myGIS/static/css/main.e27b3591.chunk.css"
+    "revision": "5f8abe49ccb3c183fecf",
+    "url": "/myGIS/static/css/main.91d5a461.chunk.css"
   },
   {
     "revision": "ab477415bca31fa95657",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/myGIS/static/js/2.5de448b1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8f95cda75eecea3279c9",
+    "revision": "5f8abe49ccb3c183fecf",
     "url": "/myGIS/static/js/main.8cea4497.chunk.js"
   },
   {
