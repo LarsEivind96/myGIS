@@ -7,10 +7,13 @@ import OperationButton from "./minorComponents/OperationButton";
 
 const Union = (props) => {
   const { setTotalLayerSet, layersCopy } = props;
-  const polygonLayers = layersCopy.filter(
-    (layer) =>
+  const polygonLayers = layersCopy.filter((layer) => {
+    //console.log(layer);
+
+    return (
       layer.source.data.geometry.type === "Polygon" || layer.source.data.geometry.type === "MultiPolygon"
-  );
+    );
+  });
   const [chosenLayerId, setChosenLayerId] = useState(polygonLayers[0].id);
   const [chosenLayerId2, setChosenLayerId2] = useState(polygonLayers[0].id);
 

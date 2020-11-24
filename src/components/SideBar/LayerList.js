@@ -12,6 +12,13 @@ const LayerList = (props) => {
     layersCopy.push(element);
   });
 
+  const toggleAllVisibility = (visible) => {
+    layersCopy.forEach((layer) => {
+      layer.layout.visibility = visible ? "visible" : "none";
+    });
+    setTotalLayerSet(layersCopy);
+  };
+
   const toggleVisibility = (layer) => {
     if (layer.layout.visibility === "none") {
       layer.layout.visibility = "visible";
@@ -59,6 +66,23 @@ const LayerList = (props) => {
   return (
     <div className="LayerContainer">
       <h3>Layers</h3>
+      <div>Drag and drop the layers to change order of visualization</div>
+      <div className="ToggleButtons">
+        <button
+          onClick={() => {
+            toggleAllVisibility(true);
+          }}
+        >
+          Show All
+        </button>
+        <button
+          onClick={() => {
+            toggleAllVisibility(false);
+          }}
+        >
+          Hide All
+        </button>
+      </div>
       <Droppable droppableId={"0"}>
         {(provided) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>

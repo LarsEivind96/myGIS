@@ -21,9 +21,14 @@
 }
 
 .LayerContainer {
-  display: flex;
   flex-direction: column;
   width: 95%;
+  margin-bottom: 10px;
+}
+
+.ToggleButtons {
+  display: flex;
+  justify-content: space-around;
 }
 
 .LayerList {
@@ -33,9 +38,8 @@
 }
 
 .Layer {
-  width: calc(100% - 4px);
+  width: calc(100% - 5px);
   padding: 2px;
-  border-radius: 1px;
 }
 
 .Layer:hover {
@@ -62,7 +66,7 @@
   width: calc(100% - 8px);
   padding: 4px;
   font-size: 14px;
-  margin-top: 3px;
+  margin-bottom: 9px;
   border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 1px;
   display: flex;

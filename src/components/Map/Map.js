@@ -9,14 +9,14 @@ mapboxgl.accessToken =
 const Map = (props) => {
   const mapContainer = useRef(null);
   let [map, setMap] = useState(null);
-  let { allLayers, deletedLayerId, setDeletedLayerId } = props;
+  let { allLayers, deletedLayerId, setDeletedLayerId, mapStyle } = props;
 
   useEffect(() => {
-    const attachMap = (setMap, mapContainer) => {
+    const attachMap = ({ setMap, mapContainer }) => {
       if (!mapContainer.current) {
         return;
       }
-      const map = new mapboxgl.Map({
+      const newMap = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/mapbox/dark-v10",
         center: [10.406, 63.418],
@@ -24,51 +24,71 @@ const Map = (props) => {
         attributionControl: false,
       });
 
-      map.on("load", () => {
+      newMap.on("load", () => {
+        console.log("First: ", allLayers);
+
         // Add layers to map after map has loaded
         allLayers.forEach((layer) => {
-          map.addLayer(layer);
+          newMap.addLayer(layer);
+
+          console.log(layer.layout.visibility);
         });
-        setMap(map);
-        map.resize();
+        setMap(newMap);
+        newMap.resize();
       });
 
       // Add zoom control
       var nav = new mapboxgl.NavigationControl();
-      map.addControl(nav, "bottom-right");
+      newMap.addControl(nav, "bottom-right");
     };
-    !map && attachMap(setMap, mapContainer);
+    !map && attachMap({ setMap, mapContainer });
+    map && updateLayers();
   }, [map, allLayers]);
 
   useEffect(() => {
     if (map) {
-      let lastLayer;
-      let index = 0;
-      // Removes the chosen layer
-      if (deletedLayerId !== "") {
-        map.removeLayer(deletedLayerId);
-        setDeletedLayerId("");
-        return;
-      }
-      allLayers.forEach((layer) => {
-        // Adds layer to the map if not already included
-        if (map.getLayer(layer.id) === undefined) {
-          map.addLayer(layer);
-        }
-        // Updates visibility of each layer
-        map.setLayoutProperty(layer.id, "visibility", layer.layout.visibility);
+      map.setStyle("mapbox://styles/mapbox/" + mapStyle);
+    }
+  }, [map, mapStyle]);
 
-        // Rearranges the layers
-        if (index === 0) {
-          lastLayer = layer;
-        } else {
-          map.moveLayer(layer.id, lastLayer.id);
-          lastLayer = layer;
-        }
-        index++;
-      });
+  useEffect(() => {
+    if (map) {
+      updateLayers();
     }
   }, [map, allLayers, deletedLayerId, setDeletedLayerId]);
+
+  const updateLayers = () => {
+    console.log("Second: ", allLayers);
+    let lastLayer;
+    let index = 0;
+    // Removes the chosen layer
+    if (deletedLayerId !== "") {
+      console.log("Delete layer");
+      map.removeLayer(deletedLayerId);
+      setDeletedLayerId("");
+      return;
+    }
+    allLayers.forEach((layer) => {
+      // Adds layer to the map if not already included
+      if (map.getLayer(layer.id) === undefined) {
+        map.addLayer(layer);
+        console.log("Add layer");
+      }
+
+      // Updates visibility of each layer
+      map.setLayoutProperty(layer.id, "visibility", layer.layout.visibility);
+      console.log(layer.layout.visibility);
+
+      // Rearranges the layers
+      if (index === 0) {
+        lastLayer = layer;
+      } else {
+        map.moveLayer(layer.id, lastLayer.id);
+        lastLayer = layer;
+      }
+      index++;
+    });
+  };
 
   return <div className="map" ref={mapContainer} />;
 };
