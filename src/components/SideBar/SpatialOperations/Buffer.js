@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as turf from "@turf/turf";
+import buffer from "@turf/buffer";
 import Colors from "../../../constants/Colors";
 import { createPolygonLayer } from "../../../datasets/layers";
 import OperationHeader from "./minorComponents/OperationHeader";
@@ -11,20 +11,20 @@ const Buffer = (props) => {
   const [radius, setRadius] = useState(5);
   const [chosenLayerId, setChosenLayerId] = useState(layersCopy[0].id);
 
-  const performBuffer = (layer, radius) => {
-    let bufferedLayer = JSON.parse(JSON.stringify(layer));
-    bufferedLayer.source.data = turf.buffer(layer.source.data, radius, { units: "metres" });
+  const performBuffer = (layer) => {
+    let bufferedData = buffer(layer.source.data, radius, { units: "metres" });
     // Change id of the new layer
-    let id = bufferedLayer.id + `_${radius}m`;
-    let createdLayer = createPolygonLayer(bufferedLayer.source.data, id, true);
-    if (layersCopy.findIndex((layer) => layer.id === id) !== -1) {
+    let newID = layer.id + `_${radius}m`;
+    let createdLayer = createPolygonLayer(bufferedData, newID, true);
+    if (layersCopy.findIndex((lyr) => lyr.id === newID) !== -1) {
       alert("You have allready created this layer");
       return;
-    } else {
-      layersCopy.unshift(createdLayer);
-      setTotalLayerSet(layersCopy);
     }
+    // Adds the newly created layer to the beginning of the array
+    layersCopy.unshift(createdLayer);
+    setTotalLayerSet(layersCopy);
   };
+
   return (
     <div className="OperationContainer" style={{ backgroundColor: Colors.secondary, color: Colors.text }}>
       <div className="OperationSettings">
@@ -49,12 +49,7 @@ const Buffer = (props) => {
         </label>
       </div>
       <OperationButton
-        operationHandler={() =>
-          performBuffer(
-            layersCopy.find((layer) => layer.id === chosenLayerId),
-            radius
-          )
-        }
+        operationHandler={() => performBuffer(layersCopy.find((layer) => layer.id === chosenLayerId))}
       />
     </div>
   );

@@ -67,7 +67,7 @@ export const createPointLayer = (data, id, visible) => {
   };
 };
 
-const layer_gloshaugen = createPolygonLayer(gloshaugen, "Gløshaugen", false);
+const layer_gloshaugen = createPolygonLayer(gloshaugen, "Gløshaugen", true);
 
 const layer_hoyskoleparken = createPolygonLayer(hoyskoleparken, "Høyskoleparken", false);
 

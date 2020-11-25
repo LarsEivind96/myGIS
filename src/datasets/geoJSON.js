@@ -42,9 +42,7 @@ export const gloshaugen = {
     type: "Polygon",
   },
   type: "Feature",
-  properties: {
-    id: "Gløshaugen",
-  },
+  properties: {},
 };
 
 export const campusrunden = {

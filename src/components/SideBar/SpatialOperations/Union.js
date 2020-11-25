@@ -4,6 +4,7 @@ import Colors from "../../../constants/Colors";
 import OperationHeader from "./minorComponents/OperationHeader";
 import LayerSelect from "./minorComponents/LayerSelect";
 import OperationButton from "./minorComponents/OperationButton";
+import { createPolygonLayer } from "../../../datasets/layers";
 
 const Union = (props) => {
   const { setTotalLayerSet, layersCopy } = props;
@@ -22,19 +23,21 @@ const Union = (props) => {
       alert("You need to choose two different layers, in order to perform Union");
       return;
     }
-    let layer1Copy = JSON.parse(JSON.stringify(layer1));
-    let layer2Copy = JSON.parse(JSON.stringify(layer2));
-    layer1Copy.source.data = turf.union(layer1Copy.source.data, layer2Copy.source.data);
+    let unionData = turf.union(layer1.source.data, layer2.source.data);
     // Change id of the new layer
-    layer1Copy.id = layer1Copy.id + `_${layer2Copy.id}_union`;
-    layer1Copy.layout.visibility = "visible";
-    if (layersCopy.findIndex((layer) => layer.id === layer1Copy.id) !== -1) {
+    let newID = `${layer1.id}_${layer2.id}_UNI`;
+
+    if (layersCopy.findIndex((layer) => layer.id === newID) !== -1) {
       alert("You have allready created this layer");
       return;
     }
-    layersCopy.unshift(layer1Copy);
+
+    let unionPolygon = createPolygonLayer(unionData, newID, true);
+
+    layersCopy.unshift(unionPolygon);
     setTotalLayerSet(layersCopy);
   };
+
   return (
     <div className="OperationContainer" style={{ backgroundColor: Colors.secondary, color: Colors.text }}>
       <div className="OperationSettings">

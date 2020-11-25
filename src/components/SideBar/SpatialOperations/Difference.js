@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import * as turf from "@turf/turf";
+import difference from "@turf/difference";
 import Colors from "../../../constants/Colors";
 import OperationButton from "./minorComponents/OperationButton";
 import LayerSelect from "./minorComponents/LayerSelect";
 import OperationHeader from "./minorComponents/OperationHeader";
+import { createPolygonLayer } from "../../../datasets/layers";
 
 const Difference = (props) => {
   const { setTotalLayerSet, layersCopy } = props;
@@ -23,19 +24,21 @@ const Difference = (props) => {
       alert("You need to choose two different layers, in order to perform Difference");
       return;
     }
-    let layer1Copy = JSON.parse(JSON.stringify(layer1));
-    let layer2Copy = JSON.parse(JSON.stringify(layer2));
-    layer1Copy.source.data = turf.difference(layer1Copy.source.data, layer2Copy.source.data);
+    let differenceData = difference(layer1.source.data, layer2.source.data);
     // Change id of the new layer
-    layer1Copy.id = layer1Copy.id + `_${layer2Copy.id}_Difference`;
-    layer1Copy.layout.visibility = "visible";
-    if (layersCopy.findIndex((layer) => layer.id === layer1Copy.id) !== -1) {
+    let newID = layer1.id + `_${layer2.id}_DIFF`;
+
+    let createdLayer = createPolygonLayer(differenceData, newID, true);
+
+    if (layersCopy.findIndex((layer) => layer.id === newID) !== -1) {
       alert("You have allready created this layer");
       return;
     }
-    layersCopy.unshift(layer1Copy);
+
+    layersCopy.unshift(createdLayer);
     setTotalLayerSet(layersCopy);
   };
+
   return (
     <div className="OperationContainer" style={{ backgroundColor: Colors.secondary, color: Colors.text }}>
       <div className="OperationSettings">

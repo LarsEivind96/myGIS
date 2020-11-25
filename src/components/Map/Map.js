@@ -8,7 +8,7 @@ mapboxgl.accessToken =
 
 const Map = (props) => {
   const mapContainer = useRef(null);
-  let [map, setMap] = useState(null);
+  const [map, setMap] = useState(null);
   let { allLayers, deletedLayerId, setDeletedLayerId, mapStyle } = props;
 
   useEffect(() => {
@@ -30,8 +30,7 @@ const Map = (props) => {
         // Add layers to map after map has loaded
         allLayers.forEach((layer) => {
           newMap.addLayer(layer);
-
-          console.log(layer.layout.visibility);
+          console.log(newMap.getLayer(layer.id).id);
         });
         setMap(newMap);
         newMap.resize();
@@ -42,12 +41,12 @@ const Map = (props) => {
       newMap.addControl(nav, "bottom-right");
     };
     !map && attachMap({ setMap, mapContainer });
-    map && updateLayers();
-  }, [map, allLayers]);
+  }, [map]);
 
   useEffect(() => {
     if (map) {
-      map.setStyle("mapbox://styles/mapbox/" + mapStyle);
+      //map.setStyle("mapbox://styles/mapbox/" + mapStyle);
+      console.log("change layer");
     }
   }, [map, mapStyle]);
 
@@ -55,29 +54,37 @@ const Map = (props) => {
     if (map) {
       updateLayers();
     }
-  }, [map, allLayers, deletedLayerId, setDeletedLayerId]);
+  }, [map, allLayers]);
+
+  useEffect(() => {
+    if (map) {
+      // Delete layer
+      if (deletedLayerId !== "") {
+        console.log("Delete layer");
+        console.log(map.getLayer(deletedLayerId));
+        map.removeLayer(deletedLayerId);
+        setDeletedLayerId("");
+        return;
+      }
+    }
+  }, [deletedLayerId, setDeletedLayerId]);
 
   const updateLayers = () => {
     console.log("Second: ", allLayers);
     let lastLayer;
     let index = 0;
     // Removes the chosen layer
-    if (deletedLayerId !== "") {
-      console.log("Delete layer");
-      map.removeLayer(deletedLayerId);
-      setDeletedLayerId("");
-      return;
-    }
+
     allLayers.forEach((layer) => {
       // Adds layer to the map if not already included
       if (map.getLayer(layer.id) === undefined) {
         map.addLayer(layer);
         console.log("Add layer");
       }
+      console.log(map.getLayer(layer.id).id);
 
       // Updates visibility of each layer
       map.setLayoutProperty(layer.id, "visibility", layer.layout.visibility);
-      console.log(layer.layout.visibility);
 
       // Rearranges the layers
       if (index === 0) {
