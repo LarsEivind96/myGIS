@@ -11,14 +11,14 @@ function MainWrapper() {
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [deletedLayerId, setDeletedLayerId] = useState("");
   const [showMission, setShowMission] = useState(true);
-  const [mapStyle, setMapStyle] = useState("dark-v10");
+  //const [mapStyle, setMapStyle] = useState("dark-v10");
 
   return (
     <div className="mainContainer">
       <Mission showMission={showMission} setShowMission={setShowMission} />
       {!sideBarOpen && !showMission && (
         <button
-          style={{ backgroundColor: Colors.primary, color: Colors.secondary }}
+          style={{ backgroundColor: Colors.secondary, color: Colors.text, fontSize: "32px" }}
           className="ToggleSideBar"
           onClick={() => {
             setSideBarOpen(true);
@@ -43,10 +43,11 @@ function MainWrapper() {
           allLayers={totalLayerSet}
           deletedLayerId={deletedLayerId}
           setDeletedLayerId={setDeletedLayerId}
-          mapStyle={mapStyle}
+          // mapStyle={mapStyle}
         />
       </div>
 
+      {/*
       <div className="LayerShift">
         <div style={LabelStyle}>Change Map Style</div>
         <select
@@ -64,10 +65,11 @@ function MainWrapper() {
           <option value="satellite-v9">Satellite</option>
         </select>
       </div>
+       */}
     </div>
   );
 }
-
+/*
 const LayerSelect = {
   borderRadius: "5px",
   marginTop: "2px",
@@ -80,6 +82,6 @@ const LabelStyle = {
   margin: "0px",
   padding: "0px",
   color: "white",
-};
+};*/
 
 export default MainWrapper;

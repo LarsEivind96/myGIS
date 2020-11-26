@@ -3,7 +3,12 @@
   top: 10px;
   right: 10px;
   z-index: 1;
-  font-size: 25px;
+  font-size: 32px;
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .ModalContent {

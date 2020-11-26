@@ -41,22 +41,18 @@ const LayerList = (props) => {
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
-            <div style={{ width: "65%", wordWrap: "break-word" }}>{layer.id}</div>
-            <button
+            <div style={{ width: "70%", wordWrap: "break-word", marginLeft: 4, fontSize: "15px" }}>
+              {layer.id}
+            </div>
+            <div
               className="LayerButton"
-              style={{
-                width: "50px",
-                borderRadius: "5px",
-                backgroundColor: Colors.button,
-                color: Colors.text,
-              }}
               onClick={() => {
                 setVisibility(visibility === "visible" ? "none" : "visible");
                 toggleVisibility(layer);
               }}
             >
-              {visibility === "visible" ? "hide" : "show"}
-            </button>
+              <i class="material-icons">{visibility === "visible" ? "visibility" : "visibility_off"}</i>
+            </div>
           </StyledContainer>
         )}
       </Draggable>
@@ -65,23 +61,40 @@ const LayerList = (props) => {
 
   return (
     <div className="LayerContainer">
-      <h3>Layers</h3>
-      <div>Drag and drop the layers to change order of visualization</div>
+      <div>
+        <h3 style={{ color: Colors.textMain }}>Layers</h3>
+      </div>
+      <div
+        className="Note"
+        style={{
+          color: Colors.textMain,
+          borderLeft: `solid 4px ${Colors.secondary}`,
+          backgroundColor: "rgba(255, 255, 255, 0.1)",
+        }}
+      >
+        Drag and drop the layers to delete them or change the order of visualization
+      </div>
+
       <div className="ToggleButtons">
-        <button
+        <div
+          class="Button"
+          style={{ backgroundColor: Colors.secondary, color: Colors.text }}
           onClick={() => {
             toggleAllVisibility(true);
           }}
         >
           Show All
-        </button>
-        <button
+        </div>
+
+        <div
+          class="Button"
+          style={{ backgroundColor: Colors.secondary, color: Colors.text }}
           onClick={() => {
             toggleAllVisibility(false);
           }}
         >
           Hide All
-        </button>
+        </div>
       </div>
       <Droppable droppableId={"0"}>
         {(provided) => (
@@ -111,7 +124,7 @@ const LayerList = (props) => {
 
 const StyledContainer = styled.div`
   font-size: 14px;
-  margin-top: 4px;
+  margin-top: 6px;
   opacity: ${(props) => (props.isDragging ? 0.6 : 1)};
   background-color: ${(props) => (props.draggingOver ? Colors.delete : Colors.secondary)};
   border: ${(props) =>

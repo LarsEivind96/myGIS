@@ -9,7 +9,7 @@ mapboxgl.accessToken =
 const Map = (props) => {
   const mapContainer = useRef(null);
   const [map, setMap] = useState(null);
-  let { allLayers, deletedLayerId, setDeletedLayerId, mapStyle } = props;
+  let { allLayers, deletedLayerId, setDeletedLayerId } = props;
 
   useEffect(() => {
     const attachMap = ({ setMap, mapContainer }) => {
@@ -41,17 +41,22 @@ const Map = (props) => {
       newMap.addControl(nav, "bottom-right");
     };
     !map && attachMap({ setMap, mapContainer });
-  }, [map]);
+  }, [map, allLayers]);
 
+  /*
   useEffect(() => {
     if (map) {
       //map.setStyle("mapbox://styles/mapbox/" + mapStyle);
+      // map.remove();
+      // setMap(null);
       console.log("change layer");
     }
   }, [map, mapStyle]);
+  */
 
   useEffect(() => {
     if (map) {
+      console.log(map);
       updateLayers();
     }
   }, [map, allLayers]);
@@ -67,7 +72,7 @@ const Map = (props) => {
         return;
       }
     }
-  }, [deletedLayerId, setDeletedLayerId]);
+  }, [map, deletedLayerId, setDeletedLayerId]);
 
   const updateLayers = () => {
     console.log("Second: ", allLayers);

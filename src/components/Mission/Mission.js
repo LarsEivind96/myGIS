@@ -13,7 +13,7 @@ const Mission = (props) => {
   return (
     <div>
       <button
-        style={{ backgroundColor: Colors.primary, color: Colors.secondary }}
+        style={{ backgroundColor: Colors.secondary, color: Colors.text }}
         className="ShowMission"
         onClick={() => {
           setShowMission(true);

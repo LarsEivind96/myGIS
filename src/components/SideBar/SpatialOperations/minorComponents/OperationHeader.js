@@ -5,8 +5,8 @@ const OperationHeader = (props) => {
   let { operation, helpTip } = props;
   return (
     <div className="OperationHeader">
-      <p style={{ fontSize: "12px", margin: "0", fontWeight: "bold" }}>{operation}</p>
-      <div className="HelpTip" style={{ backgroundColor: Colors.primary }}>
+      <p style={{ fontSize: "13px", margin: "0", fontWeight: "bold", color: Colors.text }}>{operation}</p>
+      <div className="HelpTip" style={{ backgroundColor: Colors.button }}>
         <p>{helpTip}</p>
       </div>
     </div>

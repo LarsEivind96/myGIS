@@ -1,9 +1,12 @@
 export default {
-  secondary: "#281028",
-  primary: "#6897bb",
+  primary: "#355f7a",
+  secondary: "#142850",
+  button: "#00909E",
+  textMain: "white", //"#1c0000",
   text: "white",
-  button: "grey",
-  delete: "#8b0000",
+
+  //button: "#DAE1E7",
+  delete: "#ff2e2e", // "#8b0000",
 };
 
 // Give the new layer a random color

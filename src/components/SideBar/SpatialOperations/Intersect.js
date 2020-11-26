@@ -24,8 +24,9 @@ const Intersect = (props) => {
       layer.source.data.geometry.type === "Polygon" || layer.source.data.geometry.type === "MultiPolygon"
     );
   });
+
   const [chosenLayerId, setChosenLayerId] = useState(polygonLayers[0].id);
-  const [chosenLayerId2, setChosenLayerId2] = useState(polygonLayers[1].id);
+  const [chosenLayerId2, setChosenLayerId2] = useState(polygonLayers[0].id);
 
   const performIntersect = (layer1, layer2) => {
     // Must choose two separate layers to perform Intersect..

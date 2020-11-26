@@ -5,7 +5,7 @@ const OperationButton = (props) => {
   return (
     <button
       className="OperationButton"
-      style={{ backgroundColor: Colors.button, color: Colors.text, borderRadius: "5px" }}
+      style={{ backgroundColor: "white", color: Colors.primary, borderRadius: "5px" }}
       onClick={() => props.operationHandler()}
     >
       Go
