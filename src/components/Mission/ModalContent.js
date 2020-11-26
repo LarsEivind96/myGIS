@@ -27,7 +27,7 @@ const ModalContent = (props) => {
       )}
 
       {acceptedMission && (
-        <div className="TextContainer" style={{ fontSize: "13px" }}>
+        <div className="TextContainer" style={{ fontSize: "15px" }}>
           <p>Ethan Hunt has gotten himself caught by the enemy</p>
           <ul>
             <li>I can see a church. It is at most 100 metres away from me</li>

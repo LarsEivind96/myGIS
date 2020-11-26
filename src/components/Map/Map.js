@@ -68,6 +68,7 @@ const Map = (props) => {
         console.log("Delete layer");
         console.log(map.getLayer(deletedLayerId));
         map.removeLayer(deletedLayerId);
+        map.removeSource(deletedLayerId);
         setDeletedLayerId("");
         return;
       }
@@ -90,6 +91,8 @@ const Map = (props) => {
 
       // Updates visibility of each layer
       map.setLayoutProperty(layer.id, "visibility", layer.layout.visibility);
+
+      map.setPaintProperty(layer.id, `${layer.type}-color`, layer.paint[`${layer.type}-color`]);
 
       // Rearranges the layers
       if (index === 0) {

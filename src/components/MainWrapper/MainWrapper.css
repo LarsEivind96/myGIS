@@ -21,6 +21,23 @@
   background: #19305e;
 }
 
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  max-width: 20px;
+  max-height: 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  padding: 0;
+}
+
 .mainContainer {
   max-height: 100vh;
   display: flex;

@@ -7,6 +7,7 @@ import {
   parkering,
   bysykkelstativ,
   lilleCampusrunden,
+  Nidelva,
 } from "./geoJSON.js";
 
 import { getRandomColor } from "../constants/Colors";
@@ -83,6 +84,8 @@ const layer_parkering = createPointLayer(parkering, "Parkeringsplasser", false);
 
 const layer_bysykkelstativ = createPointLayer(bysykkelstativ, "Bysykkelstativ", false);
 
+const layer_nidelva = createLineLayer(Nidelva, "Nidelva", false);
+
 const allLayers = [
   layer_gloshaugen,
   layer_campusrunden,
@@ -92,6 +95,7 @@ const allLayers = [
   layer_parkering,
   layer_bysykkelstativ,
   layer_lille_campusrunden,
+  layer_nidelva,
 ];
 
 export default allLayers;

@@ -57,8 +57,28 @@ h3 {
 }
 
 .Layer:hover {
-  opacity: 0.6;
+  opacity: 0.8;
   cursor: move;
+}
+
+.Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+}
+
+#head {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  padding: 0px;
+}
+
+#head:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .LayerButton {

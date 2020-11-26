@@ -28,8 +28,14 @@ const LayerList = (props) => {
     setTotalLayerSet(layersCopy);
   };
 
+  const changeColor = (layer, color) => {
+    layer.paint[`${layer.type}-color`] = color;
+    setTotalLayerSet(layersCopy);
+  };
+
   const Item = ({ index, layer }) => {
     const [visibility, setVisibility] = useState(layer.layout.visibility);
+    const [color, setColor] = useState(layer.paint[`${layer.type}-color`]);
     return (
       <Draggable draggableId={`${index}`} index={index}>
         {(provided, snapshot) => (
@@ -44,14 +50,26 @@ const LayerList = (props) => {
             <div style={{ width: "70%", wordWrap: "break-word", marginLeft: 4, fontSize: "15px" }}>
               {layer.id}
             </div>
-            <div
-              className="LayerButton"
-              onClick={() => {
-                setVisibility(visibility === "visible" ? "none" : "visible");
-                toggleVisibility(layer);
-              }}
-            >
-              <i class="material-icons">{visibility === "visible" ? "visibility" : "visibility_off"}</i>
+            <div className="Row">
+              <input
+                type="color"
+                id="head"
+                name="head"
+                value={color}
+                onChange={(evt) => {
+                  setColor(evt.target.value);
+                  changeColor(layer, evt.target.value);
+                }}
+              />
+              <div
+                className="LayerButton"
+                onClick={() => {
+                  setVisibility(visibility === "visible" ? "none" : "visible");
+                  toggleVisibility(layer);
+                }}
+              >
+                <i class="material-icons">{visibility === "visible" ? "visibility" : "visibility_off"}</i>
+              </div>
             </div>
           </StyledContainer>
         )}
@@ -64,6 +82,7 @@ const LayerList = (props) => {
       <div>
         <h3 style={{ color: Colors.textMain }}>Layers</h3>
       </div>
+
       <div
         className="Note"
         style={{
