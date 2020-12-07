@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/myGIS/static/css/main.fe439724.chunk.css",
-    "main.js": "/myGIS/static/js/main.dd3f8e05.chunk.js",
-    "main.js.map": "/myGIS/static/js/main.dd3f8e05.chunk.js.map",
+    "main.css": "/myGIS/static/css/main.e178418d.chunk.css",
+    "main.js": "/myGIS/static/js/main.c1bca289.chunk.js",
+    "main.js.map": "/myGIS/static/js/main.c1bca289.chunk.js.map",
     "runtime-main.js": "/myGIS/static/js/runtime-main.3549358a.js",
     "runtime-main.js.map": "/myGIS/static/js/runtime-main.3549358a.js.map",
     "static/js/2.b59a5f80.chunk.js": "/myGIS/static/js/2.b59a5f80.chunk.js",
     "static/js/2.b59a5f80.chunk.js.map": "/myGIS/static/js/2.b59a5f80.chunk.js.map",
     "index.html": "/myGIS/index.html",
-    "static/css/main.fe439724.chunk.css.map": "/myGIS/static/css/main.fe439724.chunk.css.map",
+    "static/css/main.e178418d.chunk.css.map": "/myGIS/static/css/main.e178418d.chunk.css.map",
     "static/js/2.b59a5f80.chunk.js.LICENSE.txt": "/myGIS/static/js/2.b59a5f80.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3549358a.js",
     "static/js/2.b59a5f80.chunk.js",
-    "static/css/main.fe439724.chunk.css",
-    "static/js/main.dd3f8e05.chunk.js"
+    "static/css/main.e178418d.chunk.css",
+    "static/js/main.c1bca289.chunk.js"
   ]
 }
