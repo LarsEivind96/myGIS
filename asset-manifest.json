@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/myGIS/static/css/main.e178418d.chunk.css",
-    "main.js": "/myGIS/static/js/main.c1bca289.chunk.js",
-    "main.js.map": "/myGIS/static/js/main.c1bca289.chunk.js.map",
+    "main.js": "/myGIS/static/js/main.67f7c4ac.chunk.js",
+    "main.js.map": "/myGIS/static/js/main.67f7c4ac.chunk.js.map",
     "runtime-main.js": "/myGIS/static/js/runtime-main.3549358a.js",
     "runtime-main.js.map": "/myGIS/static/js/runtime-main.3549358a.js.map",
     "static/js/2.b59a5f80.chunk.js": "/myGIS/static/js/2.b59a5f80.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.3549358a.js",
     "static/js/2.b59a5f80.chunk.js",
     "static/css/main.e178418d.chunk.css",
-    "static/js/main.c1bca289.chunk.js"
+    "static/js/main.67f7c4ac.chunk.js"
   ]
 }
