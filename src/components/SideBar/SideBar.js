@@ -38,9 +38,11 @@ const SideBar = ({ totalLayerSet, setTotalLayerSet, setSideBarOpen, setDeletedLa
       let fasitLayer = layer_fasit.source.data;
       let equals = turf.booleanEqual(draggedLayer, fasitLayer);
       if (equals) {
-        alert("Correct! With your help we managed to save Ethan Hunt from his captors. Thank you!");
+        alert("\nCorrect! With your help we managed to save Ethan Hunt from his captors. Thank you!");
       } else {
-        alert("Not correct.. We cannot afford any more mistakes.");
+        alert(
+          "\nNot correct.. We cannot afford any more mistakes. \n\nClick on the flag in the upper right corner to view hints of his whereabouts!"
+        );
       }
     } else {
       let destIdx = parseInt(result.destination.index);

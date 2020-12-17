@@ -16,11 +16,11 @@ const ModalContent = (props) => {
           </p>
 
           <ul>
+            <li>The river, Nidelva, is at most 200 metres away from me.</li>
             <li>
               The kidnappers went away for 10 minutes, and came back with a Bunnpris bag full of food. This
               means that a Bunnpris must be at most 150 metres away from me.
             </li>
-            <li>The river, Nidelva, is at most 200 metres away from me.</li>
             <li>
               I can see the top of a church. It is more than 150 metres away from me, and less than 250 metres
               away from me.
