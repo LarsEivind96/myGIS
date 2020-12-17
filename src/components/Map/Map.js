@@ -19,8 +19,8 @@ const Map = (props) => {
       const newMap = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/mapbox/dark-v10",
-        center: [10.406, 63.418],
-        zoom: 14,
+        center: [10.39, 63.425],
+        zoom: 13,
         attributionControl: false,
       });
 
@@ -46,6 +46,24 @@ const Map = (props) => {
   /*
   useEffect(() => {
     if (map) {
+      map.on("click", allLayers[0].id, function (e) {
+        console.log(e.lngLat.lng);
+        alert("Du klikket på Gløshaugen");
+      });
+      map.on("mouseenter", allLayers[0].id, (e) => {
+        if (e.features.length) {
+          map.getCanvas().style.cursor = "pointer";
+        }
+      });
+      map.on("mouseleave", allLayers[0].id, () => {
+        map.getCanvas().style.cursor = "";
+      });
+    }
+  }, [map]);*/
+
+  /*
+  useEffect(() => {
+    if (map) {
       //map.setStyle("mapbox://styles/mapbox/" + mapStyle);
       // map.remove();
       // setMap(null);
@@ -57,6 +75,8 @@ const Map = (props) => {
   useEffect(() => {
     if (map) {
       console.log(map);
+
+      console.log(JSON.stringify(allLayers[0].source.data));
       updateLayers();
     }
   }, [map, allLayers]);

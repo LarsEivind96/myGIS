@@ -1,13 +1,13 @@
 import {
   gloshaugen,
   campusrunden,
-  kantiner,
   hoyskoleparken,
-  frimerket,
-  parkering,
-  bysykkelstativ,
-  lilleCampusrunden,
+  Train,
   Nidelva,
+  kirker,
+  Daniel,
+  Bunnpris,
+  Fasit,
 } from "./geoJSON.js";
 
 import { getRandomColor } from "../constants/Colors";
@@ -72,30 +72,29 @@ const layer_gloshaugen = createPolygonLayer(gloshaugen, "Gløshaugen", true);
 
 const layer_hoyskoleparken = createPolygonLayer(hoyskoleparken, "Høyskoleparken", false);
 
-const layer_frimerket = createPolygonLayer(frimerket, "Frimerket", false);
-
 const layer_campusrunden = createLineLayer(campusrunden, "Campusrunden", false);
 
-const layer_lille_campusrunden = createLineLayer(lilleCampusrunden, "Lille Campusrunden", false);
+const layer_nidelva = createLineLayer(Nidelva, "Nidelva", true);
 
-const layer_kantiner = createPointLayer(kantiner, "Kantiner", false);
+const layer_kirker = createPointLayer(kirker, "Kirker", true);
 
-const layer_parkering = createPointLayer(parkering, "Parkeringsplasser", false);
+const layer_daniel = createPointLayer(Daniel, "Daniel", true);
 
-const layer_bysykkelstativ = createPointLayer(bysykkelstativ, "Bysykkelstativ", false);
+export const layer_fasit = createPolygonLayer(Fasit, "Fasit", false);
 
-const layer_nidelva = createLineLayer(Nidelva, "Nidelva", false);
+const layer_bunnpris = createPointLayer(Bunnpris, "Bunnpris", true);
+
+const layer_train = createLineLayer(Train, "Train", true);
 
 const allLayers = [
   layer_gloshaugen,
-  layer_campusrunden,
-  layer_kantiner,
   layer_hoyskoleparken,
-  layer_frimerket,
-  layer_parkering,
-  layer_bysykkelstativ,
-  layer_lille_campusrunden,
+  layer_campusrunden,
   layer_nidelva,
+  layer_kirker,
+  //layer_daniel,
+  layer_bunnpris,
+  //layer_train,
 ];
 
 export default allLayers;

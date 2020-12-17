@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import difference from "@turf/difference";
+import * as turf from "@turf/turf";
+
 import Colors from "../../../constants/Colors";
 import OperationButton from "./minorComponents/OperationButton";
 import LayerSelect from "./minorComponents/LayerSelect";
@@ -24,7 +26,7 @@ const Difference = (props) => {
       alert("You need to choose two different layers, in order to perform Difference");
       return;
     }
-    let differenceData = difference(layer1.source.data, layer2.source.data);
+    let differenceData = turf.difference(layer1.source.data, layer2.source.data);
     // Change id of the new layer
     let newID = layer1.id + `_${layer2.id}_DIFF`;
 

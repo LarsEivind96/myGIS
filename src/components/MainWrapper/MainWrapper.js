@@ -16,6 +16,7 @@ function MainWrapper() {
   return (
     <div className="mainContainer">
       <Mission showMission={showMission} setShowMission={setShowMission} />
+
       {!sideBarOpen && !showMission && (
         <button
           style={{ backgroundColor: Colors.secondary, color: Colors.text, fontSize: "32px" }}

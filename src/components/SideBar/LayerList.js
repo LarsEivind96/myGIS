@@ -43,7 +43,7 @@ const LayerList = (props) => {
             className="Layer"
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
-            draggingOver={snapshot.draggingOver === "delete"}
+            draggingOver={snapshot.draggingOver}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
@@ -68,7 +68,7 @@ const LayerList = (props) => {
                   toggleVisibility(layer);
                 }}
               >
-                <i class="material-icons">{visibility === "visible" ? "visibility" : "visibility_off"}</i>
+                <i className="material-icons">{visibility === "visible" ? "visibility" : "visibility_off"}</i>
               </div>
             </div>
           </StyledContainer>
@@ -96,7 +96,7 @@ const LayerList = (props) => {
 
       <div className="ToggleButtons">
         <div
-          class="Button"
+          className="Button"
           style={{ backgroundColor: Colors.secondary, color: Colors.text }}
           onClick={() => {
             toggleAllVisibility(true);
@@ -106,7 +106,7 @@ const LayerList = (props) => {
         </div>
 
         <div
-          class="Button"
+          className="Button"
           style={{ backgroundColor: Colors.secondary, color: Colors.text }}
           onClick={() => {
             toggleAllVisibility(false);
@@ -137,6 +137,34 @@ const LayerList = (props) => {
           </div>
         )}
       </Droppable>
+      <div
+        className="Note"
+        style={{
+          color: Colors.textMain,
+          borderLeft: `solid 4px ${Colors.secondary}`,
+          backgroundColor: "rgba(255, 255, 255, 0.1)",
+          marginTop: "15px",
+        }}
+      >
+        If you have found the correct location, drag and drop it here!
+      </div>
+      <Droppable droppableId={"submit"}>
+        {(provided) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            style={{
+              color: Colors.submit,
+              borderColor: Colors.submit,
+              marginTop: "10px",
+              marginBottom: "10px",
+            }}
+            className="DeleteLayer"
+          >
+            S U B M I T{provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     </div>
   );
 };
@@ -145,7 +173,15 @@ const StyledContainer = styled.div`
   font-size: 14px;
   margin-top: 6px;
   opacity: ${(props) => (props.isDragging ? 0.6 : 1)};
-  background-color: ${(props) => (props.draggingOver ? Colors.delete : Colors.secondary)};
+  background-color: ${(props) => {
+    if (props.draggingOver === "delete") {
+      return Colors.delete;
+    } else if (props.draggingOver === "submit") {
+      return Colors.submit;
+    } else {
+      return Colors.secondary;
+    }
+  }};
   border: ${(props) =>
     props.isDragging ? "1px solid rgba(0, 0, 0, 0.6);" : "1px solid rgba(0, 0, 0, 0.3);"};
   box-shadow: ${(props) =>
