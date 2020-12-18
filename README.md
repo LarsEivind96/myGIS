@@ -1,73 +1,41 @@
-## Packages
-'react-beautiful-dnd': Used for drag and drop functionality to change the order in which the layers are painted.
+# myGIS
 
-'turf': Turf is an open source JavaScript library that allows you to do spatial operations in the browser. Turf helps you analyze, aggregate, and transform data.
+Live version available at: https://larseivind96.github.io/myGIS/
+
+## About
+
+myGIS is a simple GIS intended for introductory courses in GIS at NTNU, Trondheim, Norway. It was developed as a project in the course "Programming in Geomatics" in the fall of 2020. The goal of the course is to develop a simple GIS application that illustrate important GIS functionality in an attractive way. The application should be easy to understand and use even for beginners.
+
+The application also contains a mission that can be solved, which is displayed once you enter the web application. The mission is meant as a practical task for new geomatics students, which will help them to get acquainted with GIS.
+
+## Frameworks, libraries and packages
+
+### React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### 'react-beautiful-dnd':
 
-### `npm test`
+Used for drag and drop functionality. When dragging and dropping layers, it is possible to delete layers or rearrange the order of which the layers are drawn on to the map.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Mapbox GL JS
 
-### `npm run build`
+Mapbox GL JS is a JavaScript library for vector maps on the web. It is well documented, andprovides easy to follow guides on their website.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 'TurfJS'
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Turf is an open source JavaScript library that allows you to do spatial operations in the browser. Turf helps you analyze, aggregate, and transform data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Implemented spatial operations:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Buffer
+- Union
+- Intersect
+- Difference
