@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import difference from "@turf/difference";
 import * as turf from "@turf/turf";
 
 import Colors from "../../../constants/Colors";
@@ -12,7 +11,6 @@ const Difference = (props) => {
   const { setTotalLayerSet, layersCopy } = props;
 
   const polygonLayers = layersCopy.filter((layer) => {
-    //console.log(layer);
     return (
       layer.source.data.geometry.type === "Polygon" || layer.source.data.geometry.type === "MultiPolygon"
     );

@@ -53,7 +53,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     height: "60%",
     width: "50%",
-    backgroundColor: `#233a66`, //#142850
+    backgroundColor: `#233a66`,
     color: `${Colors.text}`,
     boxShadow: "0 6.5vw 2vw -5vw rgba(0, 0, 0, 0.5)",
   },

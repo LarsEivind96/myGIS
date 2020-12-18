@@ -30,6 +30,10 @@ const ModalContent = (props) => {
             As always, should you be caught or killed, the Secretary will disavow any knowledge of your
             actions. Good luck, GIS Agent.
           </p>
+          <p>
+            Once you have found the correct location, drag the layer onto the green submit box, and we will
+            search the area.
+          </p>
         </div>
       ) : (
         <div className="TextContainer">
