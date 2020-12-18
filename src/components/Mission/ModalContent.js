@@ -9,7 +9,7 @@ const ModalContent = (props) => {
       <h1>{title}</h1>
 
       {acceptedMission ? (
-        <div className="TextContainer" style={{ fontSize: "15px" }}>
+        <div className="TextContainer" style={{ fontSize: "15px", paddingRight: "5px" }}>
           <p>
             Ethan Hunt has gotten himself caught by the enemy. We need your GIS expertise in order to save
             him. He has managed to send us a few hints of his whereabouts:
@@ -57,6 +57,17 @@ const ModalContent = (props) => {
             }}
           >
             I ACCEPT
+          </button>
+        </div>
+      )}
+      {acceptedMission && (
+        <div className="ButtonContainer">
+          <button
+            onClick={() => {
+              setShowMission(false);
+            }}
+          >
+            Let me begin!
           </button>
         </div>
       )}

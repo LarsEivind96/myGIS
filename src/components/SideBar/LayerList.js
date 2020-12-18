@@ -146,7 +146,7 @@ const LayerList = (props) => {
           marginTop: "15px",
         }}
       >
-        If you have found the correct location, drag and drop it here!
+        If you have found the correct location, drag and drop it in the box below!
       </div>
       <Droppable droppableId={"submit"}>
         {(provided) => (
