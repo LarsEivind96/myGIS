@@ -9,8 +9,6 @@ import { createPolygonLayer } from "../../../datasets/layers";
 const Union = (props) => {
   const { setTotalLayerSet, layersCopy } = props;
   const polygonLayers = layersCopy.filter((layer) => {
-    //console.log(layer);
-
     return (
       layer.source.data.geometry.type === "Polygon" || layer.source.data.geometry.type === "MultiPolygon"
     );

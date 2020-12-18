@@ -18,8 +18,6 @@ const convertToListOfPolygons = (polygon) => {
 const Intersect = (props) => {
   const { setTotalLayerSet, layersCopy } = props;
   const polygonLayers = layersCopy.filter((layer) => {
-    //console.log(layer);
-
     return (
       layer.source.data.geometry.type === "Polygon" || layer.source.data.geometry.type === "MultiPolygon"
     );
@@ -42,16 +40,11 @@ const Intersect = (props) => {
     for (let i = 0; i < pieces1.length; i++) {
       for (let j = 0; j < pieces2.length; j++) {
         let data = intersect(pieces1[i], pieces2[j]);
-        console.log("Piece1: ", pieces1[i]);
-        console.log("Piece2: ", pieces2[j]);
-        console.log(data);
         if (data !== null) {
           intersectedPolygons.push(data.geometry.coordinates);
         }
       }
     }
-
-    console.log("intersected polygons: ", intersectedPolygons);
 
     // If the intersect operation returns null..
     if (intersectedPolygons.length <= 0) {
@@ -80,20 +73,6 @@ const Intersect = (props) => {
 
     layersCopy.unshift(IntersectedLayer);
     setTotalLayerSet(layersCopy);
-
-    /*let intersectedData = turf.intersect(layer1Copy.source.data, layer2Copy.source.data);
-
-    layer1Copy.source.data = intersectedData;
-
-    // Change id of the new layer
-    layer1Copy.id = layer1Copy.id + `_${layer2Copy.id}_intersect`;
-    layer1Copy.layout.visibility = "visible";
-    if (layersCopy.findIndex((layer) => layer.id === layer1Copy.id) !== -1) {
-      alert("You have allready created this layer");
-      return;
-    }
-    layersCopy.unshift(layer1Copy);
-    setTotalLayerSet(layersCopy);*/
   };
 
   return (
