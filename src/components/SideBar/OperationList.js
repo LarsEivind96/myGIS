@@ -12,7 +12,7 @@ const OperationList = ({ totalLayerSet, setTotalLayerSet }) => {
   });
 
   return (
-    <div className="LayerContainer">
+    <div className="LayerContainer" style={{ paddingBottom: "30px" }}>
       <h3 style={{ color: Colors.textMain }}>Spatial Operations</h3>
       <Buffer layersCopy={layersCopy} setTotalLayerSet={setTotalLayerSet} />
       <Intersect layersCopy={layersCopy} setTotalLayerSet={setTotalLayerSet} />

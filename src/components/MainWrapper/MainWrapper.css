@@ -8,17 +8,19 @@
   background: #f1f1f1;
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 12px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #142850;
+  background: #05070c;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #19305e;
+  background: #1b2436;
 }
 
 input[type="color"] {

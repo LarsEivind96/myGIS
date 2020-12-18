@@ -27,7 +27,6 @@ h3 {
 .LayerContainer {
   flex-direction: column;
   width: 95%;
-  margin-bottom: 10px;
 }
 
 .Note {
